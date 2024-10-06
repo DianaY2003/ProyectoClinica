@@ -1,0 +1,103 @@
+@page {
+    margin: 1cm;
+    font-size: 1em;
+}
+
+body {
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0cm;
+    left: 0cm;
+    right: 0cm;
+    height: 2cm;
+    background-color: #1b9fdd;
+    color: white;
+    text-align: center;
+    line-height: 1.5cm;
+    padding-top: 0.5cm;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+footer {
+    position: fixed;
+    bottom: 0cm;
+    left: 0cm;
+    right: 0cm;
+    height: 2cm;
+    background-color: #1b9fdd;
+    color: white;
+    text-align: center;
+    line-height: 1.5cm;
+}
+
+header h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+#titulo_reporte {
+    font-size: 1.25em;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-top: 2.5cm; /* Ajuste para que no se superponga con el encabezado */
+    margin-bottom: 0.5cm;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+#inv {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1cm;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+#inv th {
+    background-color: #1b9fdd;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+#inv td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+#inv tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#inv tr:hover {
+    background-color: #ddd;
+}
+
+#inv th, #inv td {
+    text-align: center;
+}
+
+header #logo {
+    position: absolute;
+    top: 0.8cm;
+    left: 1cm;
+    width: 2.2cm;
+    height: auto;
+}
+
+
+
+.page-break {
+    page-break-after: always;
+}

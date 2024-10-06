@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #6cca9b;
+}
+
+.bg-custom {
+    background-color: #6cca9b;
+}
+
+.text-custom {
+    color: #6cca9b;
+}
+
+.border-custom {
+    border-color: #6cca9b;
+}
+
+.btn-custom {
+    background-color: #6cca9b;
+    color: #fff;
+}
+
+#nosotros {
+    background-color: #f8f9fa;
+}
+
+#servicios .card {
+    margin-bottom: 20px;
+}
+
+#cita form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: 40px;
+}
+.logo {
+    width: 110px;
+}

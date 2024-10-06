@@ -1,0 +1,12 @@
+
+@import url('sweetalert2/dist/sweetalert2.min.css');
+@import url('primevue/resources/primevue.min.css');
+ @import url('primeflex/primeflex.min.css');
+@import url('primevue/resources/themes/aura-light-green/theme.css');
+@import url('primeicons/primeicons.css');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+
