@@ -34,6 +34,7 @@ class CitaClienteController extends Controller
             $citapublica->motivo = $request->input('motivo');
             $citapublica->fecha = $request->input('fecha');
             $citapublica->hora = $request->input('hora');
+            $citapublica->telefono = $request->input('telefono');
             $citapublica->nombre = $request->input('user');
             $citapublica->user_id = $request->input('user_id');
 
@@ -78,12 +79,20 @@ class CitaClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            $citapublica = CitaPublica::findOrFail($id);
+            if($citapublica->delete() >=0){
+                return response()->json(["status" => 'Deleted',"data"=> $citapublica,"message" => 'reserva  eliminada con exito'],205);
+            }else{
+                return response()->json(["status" => 'Fail',"data"=> null,
+            "message" => 'Error al eliminar el registro'],409);
+            }
+
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
     }
 
-    public function guardarFormulario(Request $request)
-    {
 
 
-    }
 }

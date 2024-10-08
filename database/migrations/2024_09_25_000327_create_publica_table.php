@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->string('motivo', 255);
+            $table->integer('telefono');
             $table->unsignedBigInteger('user_id'); // Clave foránea
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users'); // Definir la relación con la tabla users

@@ -10,8 +10,13 @@
     <link rel="stylesheet" href="build/app.css">
 
     <title>Healthy Smiles</title>
-    @vite('resources/css/app.css')
+    @vite('resources/css/tailwind.css')
     <style>
+        body {
+            background-color: #03bfae;
+            /* Color de fondo de toda la página */
+        }
+
         #menu-toggle:checked+#menu {
             display: block;
         }
@@ -19,6 +24,8 @@
         #dropdown-toggle:checked+#dropdown {
             display: block;
         }
+
+
 
         a,
         span {
@@ -88,7 +95,7 @@
     </style>
 </head>
 
-<body class="antialiased bg-white font-sans text-gray-900">
+<body class="antialiased font-sans text-gray-900">
 
     <main class="w-full">
 
@@ -115,22 +122,22 @@
                     <nav
                         class="w-full md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
                         <ul class="md:flex items-center">
-                            <li><a class="py-2 inline-block md:text-white md:hidden lg:block font-semibold"
+                            <li><a class="py-2 inline-block text-xl md:text-white md:hidden lg:block font-bold"
                                     href="/resources/views/inicio.blade.php">Inicio</a></li>
-                            <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                            <li class="md:ml-4"><a class="py-2 text-xl inline-block md:text-white md:px-2 font-bold"
                                     href="/resources/views/cita.blade.php">Citas</a></li>
-                            <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                            <li class="md:ml-4"><a class="py-2 text-xl inline-block md:text-white md:px-2 font-bold"
                                     href="/resources/views/trabajosD.blade.php">Trabajos Dentales</a></li>
                             <li class="md:ml-4 md:hidden lg:block"><a
-                                    class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    class="py-2 text-xl inline-block md:text-white md:px-2 font-bold"
                                     href="/resources/views/ubicacion.blade.php">Ubicacion</a></li>
-                            <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-bold"
+                            <li class="md:ml-4"><a class="py-2 text-xl inline-block md:text-white md:px-2 font-bold"
                                     href="/resources/views/nosotros.blade.php">Nosotros</a></li>
                             <li class="md:ml-6 mt-3 md:mt-0">
                                 @if(Auth::check())
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="inline">
                                     @csrf
-                                    <button type="button" onclick="confirmLogout()" class="inline-block font-bold px-4 py-2 text-black md:bg-transparent md:text-white">
+                                    <button type="button" onclick="confirmLogout()" class="inline-block text-xl font-bold px-4 py-2 text-black md:bg-transparent md:text-white">
                                         {{ Auth::user()->name }}
                                     </button>
                                 </form>
@@ -145,8 +152,50 @@
             </div>
             </div>
         </header>
-        <div class="bg-gray-100">
-            <section class="cover bg-blue-teal-gradient relative bg-blue-500 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
+
+        <!-- Menú móvil -->
+        <div class="items-center justify-center md:hidden w-full bg-blue-600 shadow-lg rounded-lg" id="mobile-menu">
+            <nav class="py-2"> <!-- Altura reducida -->
+                <ul class="space-y-2">
+                    <li class="text-center">
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="/resources/views/inicio.blade.php">Inicio</a>
+                    </li>
+                    <li class="text-center">
+                        @guest
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="{{ route('login') }}">Citas</a>
+                        @else
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="/resources/views/cita.blade.php">Citas</a>
+                        @endguest
+                    </li>
+                    <li class="text-center">
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="/resources/views/trabajosD.blade.php">Trabajos Dentales</a>
+                    </li>
+                    <li class="text-center">
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="/resources/views/ubicacion.blade.php">Ubicación</a>
+                    </li>
+                    <li class="text-center">
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="/resources/views/nosotros.blade.php">Nosotros</a>
+                    </li>
+                    <li class="text-center">
+                        @if(Auth::check())
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400">
+                            @csrf
+                            <button type="button" onclick="confirmLogout()">
+                                {{ Auth::user()->name }}
+                            </button>
+                        </form>
+                        @else
+                        <a class="block py-2 text-white bg-blue-500 rounded transition duration-200 hover:bg-blue-400" href="/resources/views/auth/login.blade.php">Iniciar sesión</a>
+                        @endif
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        </header>
+        <div>
+            <section class="cover  px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
       items-center min-h-screen">
 
                 <div class="mx-auto  text-center">
@@ -164,6 +213,13 @@
                                     <label for="hora" class="block text-lg font-bold leading-6 text-white text-left">Hora</label>
                                     <input type="time" name="hora" id="hora" class="block w-full rounded-md border-0 px-3.5 py-4 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 lg:text-lg lg:leading-6" required>
                                 </div>
+                            </div>
+                            <div>
+                                <div class="mt-2.5">
+                                    <label for="telefono" class="block text-lg font-bold leading-8 text-white text-left">Telefono</label>
+                                    <input type="tel" name="telefono" id="telefono" maxlength="8" class="block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 lg:text-lg lg:leading-6" required>
+                                </div>
+
                             </div>
                         </div>
                         <div class="sm:col-span-2">
@@ -196,20 +252,17 @@
                     </form>
                 </div>
 
-
         </div>
 
-        <!-- start footer -->
-        <footer class="relative bg-gray-900 text-white px-4 py-8">
+        <footer class="relative bg-gray-900 text-white px-2 py-3">
             <div class="flex flex-col items-center">
-                <div class="w-full max-w-xs text-center">
+                <div class="w-full max-w-sm text-center">
                     <h3 class="font-bold text-xl">Healthy Smiles</h3>
                     <p class="text-gray-400">Dra. Nadia Gomez</p>
                     <p class="text-sm text-gray-400 mt-4">© 2024 DERA. <br class="hidden lg:block">Todos Los Derechos Reservados.</p>
                 </div>
             </div>
         </footer>
-        <!-- end footer -->
 
     </main>
     <script>
@@ -374,6 +427,7 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 
