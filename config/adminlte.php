@@ -301,18 +301,7 @@ return [
         ],
 
         // Sidebar items:
-        ['header' => 'MODULO DE CITAS'],
-        [
-            'text'=> 'CITAS PUBLICAS',
-            'route'=>'publicas.create',
-            'icon'=> 'fas fa-fw fa-calendar',
-        ],
-        [
-            'text' => 'CITAS LOCALES',
-            'url' => '/agenda',
-            'icon' => 'fas fa-fw fa-calendar',
-        ],
-        ['header' => 'MODULO DE PACIENTES'],
+        ['header' => 'ADMINISTRACIÓN'],
         [
             'text' => 'PACIENTES',
             'route' => 'pacientes.create',
@@ -323,6 +312,17 @@ return [
             'route' => 'doctores.create',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'CITAS',
+            'url' => '/agenda',
+            'icon' => 'fas fa-fw fa-calendar',
+        ],
+        [
+            'text'=> 'Reservas',
+            'route'=>'publicas.create',
+            'icon'=> 'fas fa-fw fa-calendar',
+        ],
+
         [
             'text' => 'USUARIOS',
             'route' => 'usuarios.create',
@@ -335,17 +335,16 @@ return [
             'route' => 'tratamientos.create',
             'icon' => 'fas fa-fw fa-tooth',
         ],
-        ['header' => 'MODULO DE PAGOS'],
+
         [
             'text' => 'PAGOS',
             'route' => 'pagos.create',
             'icon' => 'pi pi pi-dollar',
         ],
-        ['header' => 'MODULO DE REPORTES'],
         [   
             'text' => 'REPORTES PAGOS',
             'route' => 'reportes.view',
-            'icon' => 'pi pi pi-search',
+            'icon' => 'pi pi pi-dollar',
 
         ],
 
