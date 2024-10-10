@@ -18,7 +18,7 @@ class Pago extends Model
         return $this->belongsTo(Paciente::class);
     }
 
-     //relacion con tratamiento
+  
      //momentanea con trabajos
      public function tratamiento()
      {

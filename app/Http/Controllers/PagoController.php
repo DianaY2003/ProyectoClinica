@@ -93,7 +93,7 @@ class PagoController extends Controller
     $validatedData = $request->validate([
         'paciente_id' => 'required|exists:pacientes,id',
         'tratamiento_id' => 'required|exists:tratamientos,id',
-        'tipo_pago' => 'required|in:Tarjeta,Efectivo,OtroTipoDePago', // Agrega otros tipos de pago que tengas
+        'tipo_pago' => 'required|in:Tarjeta,Efectivo,OtroTipoDePago', 
         'fecha_pago' => 'required|date',
         'precio' => 'required|numeric|min:0',
         // 'banco' es requerido solo si el tipo de pago NO es 'Efectivo' ni 'Tarjeta'

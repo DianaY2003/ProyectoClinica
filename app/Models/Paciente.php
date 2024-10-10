@@ -19,4 +19,8 @@ class Paciente extends Model
         return $this->hasMany(Cita::class);
     }
 
+    public function imagenes() {
+        return $this->hasMany(Imagen::class);
+    }
+
 }

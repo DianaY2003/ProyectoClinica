@@ -30,10 +30,9 @@
                 <p class="mb-0"><strong>Estado Civil:</strong> {{ paciente.estado_civil }}</p>
               </div>
               <div class="col-md-12 text-end" style="text-align: end;">
-                <button @click="irAOdontograma" class="btn btn-primary">Ver Odontograma</button>
+                <button @click="irAOdontograma" class="btn btn-primary">Odontograma</button>
 
-             <button class="btn btn-success" @click="irATrabajo(paciente.id)">Ver Trabajos</button>
-             <button class="btn btn-warning" @click="subirImagen(paciente.id)">Subir imagen</button>
+             <button class="btn btn-success" @click="irATrabajo(paciente.id)">Trabajos</button>
               </div>
 
 
@@ -134,10 +133,7 @@ export default {
       // Lógica para ir a trabajo
       console.log(`Ir a trabajo para la cita ${citaId}`);
     },
-    subirImagen(citaId) {
-      // Lógica para subir imagenes al expediente
-      console.log(`imagenes de expediente${citaId}`);
-    },
+   
     atenderCita(citaId) {
       // Lógica para atender cita
       location.href = "/consulta/" + citaId;

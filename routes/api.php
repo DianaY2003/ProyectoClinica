@@ -46,3 +46,7 @@ Route::resource('recetas',RecetaController::class);
 Route::post('/recetas/{cita_id}', [RecetaController::class, 'store']);
 Route::get('/recetas/show/{cita_id}', [RecetaController::class, 'show']);
 
+//ruta imagenes
+Route::get('/pacientes/{id}/imagenes', [PacienteController::class, 'getImagenes']);
+
+
