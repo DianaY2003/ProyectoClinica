@@ -347,6 +347,12 @@ return [
             'icon' => 'pi pi pi-dollar',
 
         ],
+        [
+             
+            'text' => 'Reportes de Citas', // Ajusté el texto para mayor claridad
+            'route' => 'reportes.citas.view', // Ruta adaptada
+            'icon' => 'pi pi-file', // Cambié el icono para que represente mejor un reporte
+        ],
 
 
     ],

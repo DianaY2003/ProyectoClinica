@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Pago;
 use App\Models\Receta;
 use App\Models\Cita;
+use App\Models\CitaPublica;
+
 
 class PDFController extends Controller
 {
@@ -56,14 +58,47 @@ class PDFController extends Controller
         return $pdf->stream('reporte_pagos.pdf');
     }
     
+    //reporte de citas
+    public function getCitas(Request $request) {
+        // Validar las fechas
+        $request->validate([
+            'fechaInicio' => 'required|date',
+            'fechaFinal' => 'required|date|after_or_equal:fechaInicio',
+        ]);
+    
+        $fecha1 = $request->fechaInicio;
+        $fecha2 = $request->fechaFinal;
+    
+        // Obtener citas
+        $publicas = Citapublica::select(
+            'publicas.nombre as publicas', // usuario
+            'publicas.fecha'
+        )
+        ->whereBetween('publicas.fecha', [$fecha1, $fecha2])
+        ->orderBy('publicas.id', 'DESC')
+        ->get();
+
+    
+        
+        // Generar PDF
+        $pdf = \PDF::loadView('admin.citasPDF', compact('publicas', 'fecha1', 'fecha2'));
+        return $pdf->stream('reporte_citas.pdf');
+    }
+    
     // Llamar reporte
     public function viewPagos()
     {
         return view('admin.reportePagos');
     }
 
+    //citas
+    public function viewCitas()
+    {
+        return view('admin.reporteCitas');
+    }
+
     public function generarRecetaPDF($id)
-{
+    {
     // Obtener la cita relacionada y los datos del paciente
     $cita = Cita::with('recetas.medicamentos','paciente')->findOrFail($id);
 

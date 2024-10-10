@@ -73,3 +73,10 @@ Route::delete('/publicas/{id}', [CitaClienteController::class, 'delete']);
 Route::get('reportes/pagos/rango',[PDFController::class,'getPagos'])->name('reportes.pagos');
 Route::get('reportes/pagos',[PDFController::class,'viewPagos'])->name('reportes.view');
 Route::get('/recetas/{id}/pdf', [PDFController::class, 'generarRecetaPDF'])->name('recetas.pdf');
+
+
+
+// Rutas para reportes de citas
+Route::get('/reportes/citas', [PDFController::class, 'viewCitas'])->name('reportes.citas.view');
+Route::get('/reporte-citas', [PDFController::class, 'getCitas'])->name('reporte.citas.generar');
+Route::get('/reportes/citas/rango', [PDFController::class, 'getCitas'])->name('reportes.citas.rango');

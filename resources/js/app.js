@@ -98,7 +98,8 @@ app.component('reserva-component', ReservaComponent);
 import ReportePagos from "./components/ReportePagos.vue";
 app.component('reporte-pagos', ReportePagos);
 
-
+import ReporteCitas from "./components/ReporteCitas.vue";
+app.component('reporte-citas', ReporteCitas);
 
 
 //definiendo variables globales
