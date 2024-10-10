@@ -58,17 +58,24 @@
                       <p class="mb-1"><strong>Hora:</strong> {{ cita.hora }}</p>
                     </div>
                     <div class="col-md-6 mb-2">
-                      <p class="mb-1"><strong>Motivo:</strong> {{ cita.motivo }}</p>
+                      <p class="mb-1"><strong>Historia Medica:</strong> {{ cita.motivo }}</p>
                     </div>
                     <div class="col-md-6 mb-2">
                       <p class="mb-1"><strong>Estado:</strong> {{ cita.estado }}</p>
                     </div>
                     <div class="col-md-6 mb-2">
-                      <p class="mb-1"><strong>Observaciones:</strong> {{ cita.observaciones }}</p>
+                      <p class="mb-1"><strong>Historia Odontologica:</strong> {{ cita.observaciones }}</p>
                     </div>
                     <div class="col-md-6 mb-2">
-                      <p class="mb-1"><strong>Diagnostico:</strong> {{ cita.adiagnosticos }}</p>
+                      <p class="mb-1"><strong>Examen Radiografico:</strong> {{ cita.adiagnosticos }}</p>
                     </div>
+                    <div class="col-md-6 mb-2">
+                      <p class="mb-1"><strong>Examen Radiografico:</strong> {{ cita.adiagnosticos }}</p>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <p class="mb-1"><strong>Plan de Tratamiento:</strong> {{ cita.pla_tratamiento }}</p>
+                    </div>
+
                   </div>
                   <div class="row mt-3">
                     <div class="col-md-2" v-if="cita.estado !== 'Agendada'">
