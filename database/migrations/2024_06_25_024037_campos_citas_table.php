@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('citas', function (Blueprint $table) {
             $table->text('observaciones')->nullable();
             $table->text('adiagnosticos')->nullable();
+            $table->text('pla_tratamiento')->nullable();
         });
     }
 

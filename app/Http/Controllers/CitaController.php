@@ -53,6 +53,8 @@ class CitaController extends Controller
             $cita->doctor_id = $request->doctor_id;
             $cita->observaciones = $request->observaciones;
             $cita->adiagnosticos = $request->adiagnosticos;
+            $cita->pla_tratamiento = $request->pla_tratamiento;
+
 
             $result = $cita->save();
 
@@ -109,6 +111,7 @@ class CitaController extends Controller
              $cita->doctor_id = $request->doctor_id;
              $cita->observaciones = $request->observaciones;
              $cita->adiagnosticos = $request->adiagnosticos;
+             $cita->pla_tratamiento = $request->pla_tratamiento;
  
              if($cita->update() > 0){
                  return response()->json(["status"=> 'Accepted',"data"=> $cita,'message'=>'Cita Actualizada...!'],202);
