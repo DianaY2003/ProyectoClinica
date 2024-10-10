@@ -259,6 +259,7 @@
 import { ref } from "vue";
 import { FilterMatchMode } from "primevue/api";
 import { useToast } from "primevue/usetoast";
+import Swal from 'sweetalert2';
 
 export default {
   data() {
@@ -431,7 +432,7 @@ export default {
     verificarAccion(paciente, statusCode, accion, message) {
       let me = this;
       const Toast = this.$swal.mixin({
-        toast: true,
+        Swal: true,
         position: "top-right",
         showConfirmButton: false,
         timer: 2000,
@@ -441,14 +442,14 @@ export default {
         case "add":
           //agregamos al principio del arreglo pacientes
           me.pacientes.unshift(paciente.original);
-          Toast.fire({
+          Swal.fire({
             icon: "success",
             title: message,
           });
           break;
         case "upd":
           Object.assign(me.pacientes[me.editedPaciente], paciente);
-          Toast.fire({
+          Swal.fire({
             icon: "success",
             title: message,
           });

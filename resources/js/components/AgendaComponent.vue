@@ -5,6 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import listPlugin from '@fullcalendar/list'
 import esLocale from "@fullcalendar/core/locales/es";
+import Swal from 'sweetalert2';
 
 export default {
   components: {
@@ -232,7 +233,7 @@ export default {
         verificarAccion(cita,statusCode,accion,message){
             let me = this;
             const Toast = this.$swal.mixin({
-                toast: true,
+                Swal: true,
                 position:'top-right',
                 showConfirmButton: false,
                 timer: 2000,
@@ -240,13 +241,13 @@ export default {
             });
             switch(accion){
                 case "add":
-                    Toast.fire({
+                    Swal.fire({
                         icon: 'success',
                         'title':message
                     });
                     break;
                     case "upd":
-                        Toast.fire({
+                        Swal.fire({
                             icon:'success',
                             'title':message
                         });

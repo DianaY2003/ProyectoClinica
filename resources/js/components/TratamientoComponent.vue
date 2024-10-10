@@ -58,6 +58,7 @@
      import {ref, onMounted} from 'vue';
      import {FilterMatchMode} from 'primevue/api';
      import {useToast} from 'primevue/usetoast';
+     import Swal from 'sweetalert2';
 
 export default {
     data() {
@@ -155,7 +156,7 @@ export default {
         verificarAccion(tratamiento, statusCode, accion, message) {
             let me = this;
             const Toast = this.$swal.mixin({
-                toast: true,
+                Swal: true,
                 position:'top-right',
                 showConfirmButton: false,
                 timer: 2000,
@@ -164,14 +165,14 @@ export default {
             switch (accion) {
                 case 'add':
                     this.tratamientos.unshift(tratamiento);
-                    Toast.fire({
+                    Swal.fire({
                         icon: 'success',
                         'title':message
                     });
                     break;
                 case 'upd':
                     Object.assign(me.tratamientos[me.editedTratamiento],tratamiento);
-                    Toast.fire({
+                    Swal.fire({
                             icon:'success',
                             'title':message
                         });
@@ -179,7 +180,7 @@ export default {
                 case 'del':
                     if (statusCode === 205) {
                         this.tratamientos.splice(this.editedTratamiento, 1);
-                        Toast.fire({
+                        Swal.fire({
                                 icon: 'success',
                                 'title': 'tratamiento Eliminado...!'
                             });

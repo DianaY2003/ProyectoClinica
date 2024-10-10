@@ -335,7 +335,7 @@ export default {
     verificarAccion(pago, statusCode, accion, message) {
       let me = this;
       const Toast = this.$swal.mixin({
-        toast: true,
+        Swal: true,
         position: "top-right",
         showConfirmButton: false,
         timer: 2000,
@@ -345,14 +345,14 @@ export default {
         case "add":
           //agregamos al principio del arreglo pagos
           me.pagos.unshift(pago.original);
-          Toast.fire({
+          Swal.fire({
             icon: "success",
             title: message,
           });
           break;
         case "upd":
           Object.assign(me.pagos[me.editedPago], pago);
-          Toast.fire({
+          Swal.fire({
             icon: "success",
             title: message,
           });

@@ -59,6 +59,7 @@
      import {ref, onMounted} from 'vue';
      import {FilterMatchMode} from 'primevue/api';
      import {useToast} from 'primevue/usetoast';
+     import Swal from 'sweetalert2';
 
 export default {
     data() {
@@ -176,14 +177,14 @@ export default {
             switch (accion) {
                 case 'add':
                     this.doctores.unshift(doctor);
-                    Toast.fire({
+                    Swal.fire({
                         icon: 'success',
                         'title':message
                     });
                     break;
                 case 'upd':
                     Object.assign(me.doctores[me.editedDoctor],doctor);
-                    Toast.fire({
+                    Swal.fire({
                             icon:'success',
                             'title':message
                         });
@@ -191,7 +192,7 @@ export default {
                 case 'del':
                     if (statusCode === 205) {
                         this.doctores.splice(this.editedDoctor, 1);
-                        Toast.fire({
+                        Swal.fire({
                                 icon: 'success',
                                 'title': 'doctor Eliminado...!'
                             });
